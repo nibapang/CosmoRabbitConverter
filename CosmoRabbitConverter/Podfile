@@ -7,4 +7,7 @@ target 'CosmoRabbitConverter' do
 
   # Pods for CosmoRabbitConverter
   pod 'IQKeyboardManagerSwift'
+  pod 'Firebase/Messaging'
+  pod 'AppsFlyerFramework'
+  pod 'FBSDKCoreKit', '17.4.0'
 end

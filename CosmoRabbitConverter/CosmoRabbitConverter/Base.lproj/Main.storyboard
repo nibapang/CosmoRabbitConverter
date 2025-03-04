@@ -341,7 +341,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnBackTapped:" destination="yDm-YW-l7a" eventType="touchUpInside" id="fwU-9y-gIX"/>
+                                    <action selector="backAtion:" destination="yDm-YW-l7a" eventType="touchUpInside" id="17E-8W-Qxn"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NaH-XZ-cBc">
@@ -362,6 +362,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IkI-SR-vKa"/>
+                    <connections>
+                        <outlet property="bottomCos" destination="ykb-9O-xff" id="74Y-W8-wfE"/>
+                        <outlet property="cosmoBackView" destination="S7Z-Qz-wCV" id="gPg-hd-Lje"/>
+                        <outlet property="cosmoWebView" destination="clS-Hf-Ztt" id="tZJ-wI-0At"/>
+                        <outlet property="indicatorView" destination="NaH-XZ-cBc" id="8UO-5n-FNL"/>
+                        <outlet property="topCos" destination="MD6-LR-iae" id="yrS-G8-27W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lvu-Dn-Y4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
