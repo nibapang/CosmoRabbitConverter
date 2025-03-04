@@ -21,7 +21,7 @@ class CosmoRabbitPrivacyViewController: UIViewController {
     var backAction: (() -> Void)?
     var privacyData: [Any]?
     @objc var url: String?
-    private let cosmoPrivacyUrl = ""
+    private let cosmoPrivacyUrl = "https://www.termsfeed.com/live/162332d4-2692-42b8-b86a-6d4612ecc7c2"
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

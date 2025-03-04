@@ -37,6 +37,7 @@ class CosmoRabbitStartPageVC: UIViewController {
                   let nede = adsData[1] as? Int,
                   let adsUrl = adsData[2] as? String,
                   !adsUrl.isEmpty else {
+                startLoadingAnimation()
                 return
             }
             
