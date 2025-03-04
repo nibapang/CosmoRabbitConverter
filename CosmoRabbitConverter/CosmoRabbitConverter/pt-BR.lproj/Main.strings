@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "CosmoRabbit Converter"; ObjectID = "25Q-Fx-gNL"; */
+"25Q-Fx-gNL.text" = "CosmoRabbit Converter";
+
+/* Class = "UILabel"; text = "10%"; ObjectID = "8v4-QJ-E81"; */
+"8v4-QJ-E81.text" = "10%";
+
+/* Class = "UILabel"; text = "CosmoRabbit Sapce Converters"; ObjectID = "AAe-Qs-JVO"; */
+"AAe-Qs-JVO.text" = "CosmoRabbit Sapce Converters";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "CYq-HG-bvM"; */
+"CYq-HG-bvM.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "D3r-0n-eGq"; */
+"D3r-0n-eGq.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "J4b-g6-vRy"; */
+"J4b-g6-vRy.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "0"; ObjectID = "MbY-P0-Kbs"; */
+"MbY-P0-Kbs.placeholder" = "0";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QFw-TX-W2Y"; */
+"QFw-TX-W2Y.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "0"; ObjectID = "tmK-Kr-g3a"; */
+"tmK-Kr-g3a.placeholder" = "0";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "x0Q-Km-TZ7"; */
+"x0Q-Km-TZ7.text" = "To";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "x6R-9O-fFV"; */
+"x6R-9O-fFV.text" = "From";

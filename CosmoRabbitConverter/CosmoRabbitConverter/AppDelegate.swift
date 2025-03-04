@@ -7,7 +7,7 @@
 
 import UIKit
 
-let appid = ""
+let appid = "6742783940"
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
